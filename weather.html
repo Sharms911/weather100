@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+
+<center>
+<h3>Welcome to the weather page</h3>
+Please enter your city below
+<form action="/results" method="POST">
+<input name="city" type="text">
+<input type="submit">
+
+
+</form>
+
+</center>
+{% endblock %}
+

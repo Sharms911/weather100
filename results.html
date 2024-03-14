@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="resultsimperial">
+    <input type="submit" value="Imperial" />
+</form>
+
+
+
+
+<center>
+<h4> This is the weather for: </h4> {{ city_name }}:
+
+
+
+
+
+
+Wind speed:
+{{ wind_speed }}
+<br>
+
+Current temperature:
+{{temp_celcius}}
+<br>
+
+minimum temp:
+{{ temp_min }}
+<br>
+
+maximum temp:
+{{ temp_max }}
+<br>
+
+temp at midday:
+{{ temp_day }}
+<br>
+
+temp at midnight:
+{{ temp_night }}
+<br>
+
+temp at 6pm
+{{ temp_eve }}
+<br>
+
+temp in the morning
+{{ temp_morn }}
+<br>
+
+</center>
+
+<canvas id="temperatureChart" width="400" height="400"></canvas>
+
+<script>
+    const ctx = document.getElementById('temperatureChart').getContext('2d');
+    const temperatureChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Max', 'Day', 'Night', 'Evening', 'Morning', 'Feels Like'],
+            datasets: [{
+                label: 'Temperature (°C)',
+                data: [{{ temp_max_c }}, {{ temp_day_c }}, {{ temp_night_c }}, {{ temp_eve_c }}, {{ temp_morn_c }}, {{ feels_like_c }}],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+{% endblock %}
+
+
+
+
+
+
