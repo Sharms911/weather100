@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+
+<center>
+<h4> This is the weather for: </h4> {{ city_name }}:
+
+<h4> The wind speed is: </h4> {{ wind_speed }}, The timezone is: {{ timezone }}
+
+
+<h4> The temperature in Celcius is: </h4> {{ temp_celcius }}
+
+<h4> The temperature in Kelvin is: </h4> {{ temp_k }}
+
+
+<h4> Date and time: </h4> {{ dt }}
+
+
+
+</center>
+
+
+
+{% endblock %}
+
